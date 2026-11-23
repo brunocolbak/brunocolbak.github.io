@@ -1,10 +1,8 @@
 ---
 titre: Lectures Babelio
 resume: Choisir ses prochaines lectures parmi les lauréats de 18 prix littéraires français (1976–2026), à partir des notes Babelio.
-statut: en-ligne
+statut: en-cours
 date: 2026-11-22
-lien: /lectures-babelio/
-code: https://github.com/brunocolbak/lectures-babelio
 tags: [livres, données]
 ---
 
@@ -14,4 +12,4 @@ tags: [livres, données]
 - **Classements** des livres et des auteurs, et évolution de chaque auteur dans le temps.
 - **Qui reçoit les prix** : part de femmes, âge, lieu de naissance, formation, métiers ; comparaison des 18 prix.
 
-Les marques personnelles (aimé, pas aimé, à lire) restent dans le navigateur : elles ne passent pas d'un appareil à l'autre.
+Pour l'instant, l'appli est privée : elle reviendra en ligne avec un espace personnel.
