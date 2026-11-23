@@ -1,0 +1,24 @@
+---
+interface Props { titre?: string; description?: string }
+const { titre, description = 'Projets, idées et notes.' } = Astro.props;
+const nomSite = 'Carnet';
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titre ? `${titre} · ${nomSite}` : nomSite}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📓</text></svg>" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="site">
+      <a href="/" class="nom">{nomSite}</a>
+      <nav><a href="/#projets">Projets</a><a href="/#idees">Idées</a><a href="/#notes">Notes</a></nav>
+    </header>
+    <main><slot /></main>
+    <footer>Fait à la main, sans statistiques ni pubs.</footer>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { STATUTS, dateFr } from '../lib';
+
+const projets = (await getCollection('projets')).sort((a, b) => +b.data.date - +a.data.date);
+const actifs = projets.filter((p) => p.data.statut !== 'idee');
+const idees = projets.filter((p) => p.data.statut === 'idee');
+const notes = (await getCollection('notes', (n) => !n.data.brouillon))
+  .sort((a, b) => +b.data.date - +a.data.date);
+---
+<Base>
+  <section class="intro">
+    <h1>Carnet</h1>
+    <p>Ce que je construis, ce que je pense construire, et quelques notes en chemin.</p>
+  </section>
+
+  <section id="projets">
+    <h2>Projets</h2>
+    {actifs.length === 0 && <p class="vide">Rien pour l'instant.</p>}
+    <ul class="cartes">
+      {actifs.map((p) => (
+        <li class="carte">
+          <span class={`statut ${p.data.statut}`}>{STATUTS[p.data.statut]}</span>
+          <h3><a href={`/projets/${p.id}/`}>{p.data.titre}</a></h3>
+          <p>{p.data.resume}</p>
+          {p.data.lien && <a class="ouvrir" href={p.data.lien}>Ouvrir →</a>}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section id="idees">
+    <h2>Idées</h2>
+    {idees.length === 0 && <p class="vide">Aucune idée notée pour l'instant.</p>}
+    <ul class="liste">
+      {idees.map((p) => (
+        <li><a href={`/projets/${p.id}/`}>{p.data.titre}</a> <span class="gris">— {p.data.resume}</span></li>
+      ))}
+    </ul>
+  </section>
+
+  <section id="notes">
+    <h2>Notes</h2>
+    {notes.length === 0 && <p class="vide">Pas encore de note.</p>}
+    <ul class="liste">
+      {notes.map((n) => (
+        <li><time>{dateFr(n.data.date)}</time> <a href={`/notes/${n.id}/`}>{n.data.titre}</a></li>
+      ))}
+    </ul>
+  </section>
+</Base>
