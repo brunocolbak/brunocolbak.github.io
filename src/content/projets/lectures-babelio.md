@@ -8,7 +8,7 @@ code: https://github.com/brunocolbak/lectures-babelio
 tags: [livres, données]
 ---
 
-7 086 livres d'auteurs primés, classés par un score qui corrige la note Babelio par le nombre de lecteurs.
+7 116 livres de 570 auteurs primés, classés par un score qui corrige la note Babelio par le nombre de lecteurs.
 
 - **Pour moi** : liste à lire, livres non lus des auteurs favoris, carte des auteurs proches, suggestions.
 - **Classements** des livres et des auteurs, et évolution de chaque auteur dans le temps.
